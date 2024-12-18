@@ -12,7 +12,7 @@ entity Game {
 }
 
 entity Student {
-  key Student_ID : Integer @Core.Computed;
+  key Student_ID : UUID;
       First_name : String(100);
       Last_name  : String(100);
       to_favos   : Composition of many FavoriteGame
@@ -21,7 +21,7 @@ entity Student {
 
 entity FavoriteGame {
   key Game_ID    : Integer;
-  key Student_ID : Integer;
+  key Student_ID : UUID;
       to_game    : Association to Game
                      on to_game.Game_ID = $self.Game_ID;
 }
